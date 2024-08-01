@@ -29,15 +29,7 @@ def showPendingActivities():
         if actividad not in completedTasks:
             print(f'{actividad}')
 
-user_input = int(input('''Seleccione una de las opciones: 
-                       
-                       1.- Agregar una actividad
-                       2.- Marcar una actividad como completada
-                       3.- Ver todas las actividades
-                       4.- Borrar toda la lista de actividades
-                       5.- Mostrar actividades pendientes
-                       6.- Salir
-                       '''))
+
 
 if __name__ == "__main__":
     user_input = int(input('''Seleccione una de las opciones: 

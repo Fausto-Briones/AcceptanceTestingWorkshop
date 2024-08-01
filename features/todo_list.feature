@@ -18,7 +18,7 @@ Feature: Gestión de Lista de Tareas
       | Estudiar para el examen|
       | Comprar víveres        |
     When el usuario ve todas las actividades
-    Then la salida debería contener:
+    Then la salida de todas las actividades debería contener:
       """
       Actividades:
       - Estudiar para el examen
@@ -40,7 +40,7 @@ Feature: Gestión de Lista de Tareas
       | Comprar víveres        |
     And el usuario marca la actividad "Estudiar para el examen" como completada
     When el usuario muestra las actividades pendientes
-    Then la salida debería contener:
+    Then la salida de actividades pendientes debería contener:
       """
       Actividades pendientes:
       - Comprar víveres

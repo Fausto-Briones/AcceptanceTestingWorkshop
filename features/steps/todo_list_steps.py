@@ -20,7 +20,7 @@ def step_impl(context, actividad):
 def step_impl(context, actividad):
     assert actividad in tasks, f'Actividad "{actividad}" no encontrada en la lista de tareas'
 
-@given('la lista de tareas contiene actividades:')
+@given('la lista de tareas contiene actividades')
 def step_impl(context):
     tasks.clear()
     completedTasks.clear()
@@ -39,8 +39,8 @@ def step_impl(context, actividad):
 def step_impl(context):
     context.output = tasks
 
-@then('la salida debería contener:')
-def step_impl(context):
+@then('la salida de todas las actividades debería contener')
+def step_impl_all_activities(context):
     expected_output = context.text.strip().split('\n')[1:]
     expected_output = [line.strip() for line in expected_output]
     assert all(activity in tasks for activity in expected_output), f'La salida no contiene todas las actividades esperadas'
@@ -57,8 +57,8 @@ def step_impl(context):
 def step_impl(context):
     context.pending_output = [actividad for actividad in tasks if actividad not in completedTasks]
 
-@then('la salida debería contener:')
-def step_impl(context):
+@then('la salida de actividades pendientes debería contener')
+def step_impl_pending_activities(context):
     expected_output = context.text.strip().split('\n')[1:]
     expected_output = [line.strip().split('- ')[1] for line in expected_output]
     assert context.pending_output == expected_output, 'La salida no coincide con las actividades pendientes esperadas'
